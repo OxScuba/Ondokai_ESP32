@@ -54,8 +54,7 @@ Ce projet utilise les bibliothèques suivantes :
 ## Installation
 
 1. **Prérequis :**
-   - Un ESP32 compatible.
-   - Un écran TFT de 320x170 compatible avec la bibliothèque TFT_eSPI.
+   - Un ESP32 LILYGO T-Display S3 compatible.
 
 2. **Cloner le dépôt :**
    ```bash
@@ -73,6 +72,26 @@ Ce projet utilise les bibliothèques suivantes :
 5. **Configurer le WiFi :**
    - Lors du premier démarrage, connectez-vous au réseau "Ondokai" avec le mot de passe "TicTocNextBlock".
    - Suivez les instructions pour configurer la connexion WiFi.
+
+### Flasher le Firmware pour Ondokai
+
+Créez votre propre Ondokai en utilisant l’outil de flashage de firmware en ligne **ESPtool** et l’un des fichiers binaires disponibles dans le dossier `bin`. Si vous préférez, vous pouvez également compiler l’ensemble du projet en utilisant Arduino, PlatformIO ou Expressif IDF.
+
+#### Étapes à suivre :
+1. **Obtenez une carte TTGO T-display S3**.
+2. **Téléchargez ce dépôt**.
+3. **Rendez-vous sur ESPtool en ligne** : [https://espressif.github.io/esptool-js/](https://espressif.github.io/esptool-js/).
+4. **Chargez le firmware** en sélectionnant le fichier binaire correspondant à votre carte dans l’un des sous-dossiers du dossier `bin`.
+5. **Branchez votre carte ESP32**, et choisissez chaque fichier `.bin` requis dans le sous-dossier :
+   - Ajouter les fichiers dans l'ordre  ci-dessous, en renseignant bien les adresses correspondantes
+
+0x0000 -> 0x80000_bootloader.bin
+0x100000-> 0x10000_firmware.bin
+0x80000 -> 0x80000_partitions.bin
+
+Appuyez sur PROGRAM 
+
+Une fois cette procédure terminée, l'esp32 devrait démarrer avec le firmware Ondokai correctement installé.
 
 ## Utilisation
 
