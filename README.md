@@ -59,7 +59,7 @@ Ce projet utilise les bibliothèques suivantes :
 
 2. **Cloner le dépôt :**
    ```bash
-   git clone https://github.com/jimzap/Ondokai.git
+   git clone https://github.com/OxScuba/Ondokai_ESP32
    cd ondokai
    ```
 
