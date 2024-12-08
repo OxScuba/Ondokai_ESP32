@@ -90,8 +90,8 @@ Créez votre propre Ondokai en utilisant l’outil de flashage de firmware en li
 - 0x10000-> 0x10000_firmware.bin
 - 0x8000 -> 0x8000_partitions.bin
 ![Ondokai](src/media/readme/esptoopl_step_one.jpeg)
-![Ondokai](src/media/readme/esptoopl_step_two.jpeg)
-![Ondokai](src/media/readme/esptoopl_step_three.jpeg)
+![Ondokai](src/media/readme/esptool_step_two.jpeg)
+![Ondokai](src/media/readme/esptool_step_three.jpeg)
 
 
 
