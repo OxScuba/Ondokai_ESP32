@@ -85,7 +85,7 @@ Créez votre propre Ondokai en utilisant l’outil de flashage de firmware en li
 5. **Branchez votre carte ESP32**, et choisissez chaque fichier `.bin` requis dans le sous-dossier :
    - Ajouter les fichiers dans l'ordre  ci-dessous, en renseignant bien les adresses correspondantes
 
-0x0000 -> 0x80000_bootloader.bin
+0x0000 -> 0x0000_bootloader.bin
 0x100000-> 0x10000_firmware.bin
 0x80000 -> 0x80000_partitions.bin
 
