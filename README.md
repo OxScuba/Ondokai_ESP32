@@ -1,5 +1,5 @@
 # Ondokai
-![Data Block](src/media/readme/ondokai.png)
+![Ondokai](src/media/readme/ondokai.png)
 
 **Ondokai** est un projet basé sur l'ESP32 qui permet de surveiller et (dans un futur proche) de contrôler un miner. Ce projet utilise un écran TFT pour afficher en temps réel des informations essentielles provenant du miner, telles que :
 
@@ -86,9 +86,14 @@ Créez votre propre Ondokai en utilisant l’outil de flashage de firmware en li
 5. **Branchez votre carte ESP32**, et choisissez chaque fichier `.bin` requis dans le sous-dossier :
    - Ajouter les fichiers dans l'ordre  ci-dessous, en renseignant bien les adresses correspondantes
 
-0x0000 -> 0x0000_bootloader.bin
-0x10000-> 0x10000_firmware.bin
-0x8000 -> 0x8000_partitions.bin
+- 0x0000 -> 0x0000_bootloader.bin
+- 0x10000-> 0x10000_firmware.bin
+- 0x8000 -> 0x8000_partitions.bin
+![Ondokai](src/media/readme/esptoopl_step_one.jpeg)
+![Ondokai](src/media/readme/esptoopl_step_two.jpeg)
+![Ondokai](src/media/readme/esptoopl_step_three.jpeg)
+
+
 
 Appuyez sur PROGRAM 
 
