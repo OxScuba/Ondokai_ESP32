@@ -1,7 +1,7 @@
 # Ondokai
 ![Ondokai](src/media/readme/320x170_esp_ondokai_display.png)
 
-**Ondokai** est un projet basé sur l'ESP32 qui permet de surveiller et (dans un futur proche) de contrôler un miner. Ce projet utilise un écran TFT pour afficher en temps réel des informations essentielles provenant du miner, telles que :
+**Ondokai** est un projet basé sur l'ESP32 LILYGO T-Display S3 qui permet de surveiller et (dans un futur proche) de contrôler un miner. Ce projet utilise un l'écran TFT pour afficher en temps réel des informations essentielles provenant du miner, telles que :
 
 - Le **hashrate** (puissance de calcul en temps réel),
 - La **température** moyenne des puces du miner,
@@ -9,13 +9,15 @@
 - La **consommation d'énergie** (en watts),
 - La **vitesse des ventilateurs** (en pourcentage et en RPM).
 
+Le tout dans une interface avec l'UX de Braiins
+
 ![Ondokai](src/media/readme/ondokai_esp32.png)
 
 ## Fonctionnalités actuelles
 
 1. **Surveillance du miner :**
    - Extraction de données du miner via des commandes JSON envoyées sur le port 4028.
-   - Affichage des informations collectées sur un écran TFT.
+   - Affichage des informations collectées sur un l'écran.
    - Suivi du hashrate et de la température sous forme de graphique.
 
 2. **WiFi intégré :**
@@ -81,7 +83,7 @@ Ce projet utilise les bibliothèques suivantes :
 Créez votre propre Ondokai en utilisant l’outil de flashage de firmware en ligne **ESPtool** et l’un des fichiers binaires disponibles dans le dossier `bin`. Si vous préférez, vous pouvez également compiler l’ensemble du projet en utilisant Arduino, PlatformIO ou Expressif IDF.
 
 #### Étapes à suivre :
-1. **Obtenez une carte TTGO T-display S3**.
+1. **Obtenez un ESP32 LILYGO T-display S3**.
 2. **Téléchargez ce dépôt**.
 3. **Rendez-vous sur ESPtool en ligne** : [https://espressif.github.io/esptool-js/](https://espressif.github.io/esptool-js/).
 4. **Chargez le firmware** en sélectionnant le fichier binaire correspondant à votre carte dans l’un des sous-dossiers du dossier `bin`.
