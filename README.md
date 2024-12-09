@@ -1,5 +1,5 @@
 # Ondokai
-![Ondokai](src/media/readme/ondokai.png)
+![Ondokai](src/media/readme/320x170_esp_ondokai_display.png)
 
 **Ondokai** est un projet basé sur l'ESP32 qui permet de surveiller et (dans un futur proche) de contrôler un miner. Ce projet utilise un écran TFT pour afficher en temps réel des informations essentielles provenant du miner, telles que :
 
