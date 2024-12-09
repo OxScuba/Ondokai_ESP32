@@ -11,7 +11,9 @@
 #include <WiFiUdp.h>
 #include <Preferences.h>
 #include <ESP32Ping.h>
+#include <lvgl.h>
 
+#include "lv_conf.h"
 #include "media/320x170_esp_attakai_display.h"
 #include "media/b320x170_esp_ondokai_display.h"
 
@@ -108,7 +110,7 @@ void setup() {
   tft.init();
   tft.setRotation(1);
   tft.fillScreen(TFT_WHITE);
-  tft.pushImage(0, 0, 320, 170,(uint16_t*) b320x170_esp_ondokai_display);
+  tft.pushImage(0, 0, 320, 170, (uint16_t*)b320x170_esp_ondokai_display.data);
 
   wifiManager.addParameter(&adressip);
   wifiManager.setAPCallback(configModeCallback);
