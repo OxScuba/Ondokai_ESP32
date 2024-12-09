@@ -9,6 +9,8 @@
 - La **consommation d'énergie** (en watts),
 - La **vitesse des ventilateurs** (en pourcentage et en RPM).
 
+![Ondokai](src/media/readme/ondokai.png)
+
 ## Fonctionnalités actuelles
 
 1. **Surveillance du miner :**
