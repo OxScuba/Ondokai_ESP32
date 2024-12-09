@@ -9,7 +9,7 @@
 - La **consommation d'énergie** (en watts),
 - La **vitesse des ventilateurs** (en pourcentage et en RPM).
 
-![Ondokai](src/media/readme/ondokai.png)
+![Ondokai](src/media/readme/ondokai_esp32.png)
 
 ## Fonctionnalités actuelles
 
