@@ -15,7 +15,10 @@
 
 #include "lv_conf.h"
 #include "media/320x170_esp_attakai_display.h"
+
 #include "media/b320x170_esp_ondokai_display.h"
+
+#include "media/c320x170_esp_ondokai_display.h"
 
 Preferences preferences;
 WiFiManager wifiManager;
@@ -110,7 +113,8 @@ void setup() {
   tft.init();
   tft.setRotation(1);
   tft.fillScreen(TFT_WHITE);
-  tft.pushImage(0, 0, 320, 170, (uint16_t*)b320x170_esp_ondokai_display.data);
+  tft.setSwapBytes(true);
+  tft.pushImage(0, 0, 320, 170, b320x170_esp_ondokai_display);
 
   wifiManager.addParameter(&adressip);
   wifiManager.setAPCallback(configModeCallback);
