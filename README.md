@@ -1,5 +1,5 @@
 # Ondokai
-![Ondokai](src/media/readme/320x170_esp_ondokai_display.png)
+![Ondokai](src/media/readme/Ondokai.png)
 
 **Ondokai** est un projet basé sur l'ESP32 LILYGO T-Display S3 qui permet de surveiller et (dans un futur proche) de contrôler un miner. Ce projet utilise un l'écran TFT pour afficher en temps réel des informations essentielles provenant du miner, telles que :
 
