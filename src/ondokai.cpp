@@ -16,7 +16,6 @@
 
 #include "media/320x170_esp_attakai_display.h"
 #include "media/b320x170_esp_ondokai_display.h"
-#include "media/c320x170_esp_ondokai_display.h"
 
 Preferences preferences;
 WiFiManager wifiManager;
