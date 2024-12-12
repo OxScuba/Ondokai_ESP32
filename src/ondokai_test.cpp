@@ -1,4 +1,4 @@
-
+/*
 #include <Arduino.h>
 #include <WiFi.h>
 #include <HTTPClient.h>
@@ -17,6 +17,7 @@
 
 #include "media/320x170_esp_attakai_display.h"
 #include "media/b320x170_esp_ondokai_display.h"
+#include "media/c320x170_esp_ondokai_display_select_mode.h"  
 
 Preferences preferences;
 WiFiManager wifiManager;
@@ -50,13 +51,21 @@ time_t currentSystemTime = 0;
 bool shouldSaveConfig = false;
 
 const int MAX_POINTS = 70;  
-float hashrateHistory[MAX_POINTS];  
+float hashrateHistory[MAX_POINTS];
+
+enum ScreenState {
+  SCREEN_1,
+  SCREEN_2
+};
+
+ScreenState currentScreen = SCREEN_1;  
 
 void saveConfigToPreferences();
 void saveConfigCallback();
 void setup();
 void loop();
 void displayScreen();
+void displayScreen2();
 void updateTime();
 void connectToWiFi();
 void getMinerData();
@@ -132,8 +141,14 @@ void setup() {
   });
 
   button2.setClickHandler([](Button2& btn) {
-    wifiManager.resetSettings();
-    ESP.restart();
+    // Bascule entre les écrans
+    if (currentScreen == SCREEN_1) {
+      currentScreen = SCREEN_2;
+      displayScreen2();
+    } else if (currentScreen == SCREEN_2) {
+      currentScreen = SCREEN_1;
+      displayScreen();
+    }
   });
 }
 
@@ -143,8 +158,12 @@ void loop() {
 
   if (millis() - lastDataRefresh >= dataRefreshInterval) {
     getMinerData();
-    displayScreen();
-    drawHashrateGraph(); 
+    if (currentScreen == SCREEN_1) {
+      displayScreen();
+      drawHashrateGraph(); 
+    } else if (currentScreen == SCREEN_2) {
+      displayScreen2();
+    }
     lastDataRefresh = millis();
   }
 
@@ -155,7 +174,6 @@ void loop() {
 }
 
 void displayScreen() {
-
   tft.fillScreen(TFT_WHITE);
   tft.pushImage(0, 0, 320, 170,(uint16_t*) b320x170_esp_attakai_display);
   tft.setCursor(0, 0); 
@@ -210,24 +228,37 @@ void displayScreen() {
   tft.setCursor(300, 147); 
   tft.printf("W"); 
 
-tft.setTextSize(1);
-tft.setCursor(20, 120); 
-tft.printf("Fan Monitor"); 
+  tft.setTextSize(1);
+  tft.setCursor(20, 120); 
+  tft.printf("Fan Monitor"); 
 
-tft.setTextSize(2);
-tft.setCursor(25, 135);  
-tft.printf("%.0f%%", fan0Speed);  
-tft.setTextSize(1);
-tft.setCursor(25, 155);  
-tft.printf("%.0f", fan0RPM);  
+  tft.setTextSize(2);
+  tft.setCursor(25, 135);  
+  tft.printf("%.0f%%", fan0Speed);  
+  tft.setTextSize(1);
+  tft.setCursor(25, 155);  
+  tft.printf("%.0f", fan0RPM);  
 
-tft.setTextSize(2);
-tft.setCursor(70, 135);  
-tft.printf("%.0f%%", fan1Speed);  
-tft.setTextSize(1);
-tft.setCursor(70, 155);  
-tft.printf("%.0f", fan1RPM);  
+  tft.setTextSize(2);
+  tft.setCursor(70, 135);  
+  tft.printf("%.0f%%", fan1Speed);  
+  tft.setTextSize(1);
+  tft.setCursor(70, 155);  
+  tft.printf("%.0f", fan1RPM);  
+}
 
+void displayScreen2() {
+  tft.fillScreen(TFT_WHITE); 
+  tft.pushImage(0, 0, 320, 170, (uint16_t*) c320x170_esp_ondokai_display_select_mode);
+
+  tft.setTextColor(TFT_BLACK);
+  tft.setTextSize(2);
+
+  tft.setCursor(180, 70); 
+  tft.printf("%.0f%%", fan0Speed);
+  tft.setTextSize(1);
+  tft.setCursor(190, 90);
+  tft.printf("%.0f W", power);
 }
 void getMinerData() {
   if (minerIP.length() == 0) {
@@ -375,18 +406,14 @@ void drawHashrateGraph() {
   int graphYStart = 60;   // Début du graphique en Y
   int graphWidth =70;   // Largeur du graphique
   int graphHeight = 50;   // Hauteur du graphique
-
  
   tft.fillRect(graphXStart, graphYStart, graphWidth, graphHeight, TFT_WHITE);
 
-  
   tft.drawRect(graphXStart, graphYStart, graphWidth, graphHeight, TFT_BLACK);
 
-  
   float maxHashrate = 13e6;  
   float maxTemp = 100.0;     
 
-  
   for (int i = 0; i < MAX_POINTS - 1; i++) {
     int x0 = graphXStart + i;
     int y0 = graphYStart + graphHeight - (hashrateHistory[i] / maxHashrate * graphHeight);
@@ -395,7 +422,6 @@ void drawHashrateGraph() {
     tft.drawLine(x0, y0, x1, y1, TFT_BLUE);  
   }
 
-  
   for (int i = 0; i < MAX_POINTS - 1; i++) {
     int x0 = graphXStart + i;
     int y0 = graphYStart + graphHeight - (temperature / maxTemp * graphHeight);
@@ -404,19 +430,17 @@ void drawHashrateGraph() {
     tft.drawLine(x0, y0, x1, y1, TFT_YELLOW);  
   }
 
- 
   tft.setTextColor(TFT_BLACK);
   tft.setTextSize(1);
   
- 
   tft.setCursor(graphXStart - 25, graphYStart);
   tft.printf("13TH");
   tft.setCursor(graphXStart - 20, graphYStart + graphHeight - 8);
   tft.printf("0TH");
 
- 
   tft.setCursor(graphXStart + graphWidth + 2, graphYStart);
   tft.printf("100C");
   tft.setCursor(graphXStart + graphWidth + 5, graphYStart + graphHeight - 8);
   tft.printf("0C");
 }
+*/
